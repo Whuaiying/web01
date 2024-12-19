@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>王阻拦</title>
+<style>
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.nav-box {
+    /* height: 30px; */
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 10px;   /*加阴影*/
+    border-radius: 20px;    /*设置圆角*/
+}
+.nav-item {
+    /* height: 30px; */
+    position: relative;
+    padding: 15px 50px;     /*上下30 左右50*/
+    background-color: rgb(207, 216, 213);
+    /* opacity:0.4; */
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    align-items: center;       /*所有项目居中*/
+    transition: all 0.5s;           /*过度时间*/
+}
+span{
+    transition: all 0.1s;
+}
+/*甚至一级导航栏的圆角，分别设置左右边上的元素有圆角*/
+.nav-item:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.nav-item:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+/*一级导航栏下面的的二级导航栏*/
+.nav-item > div{
+    display: flex;
+    flex-direction: column;
+    position: absolute;  /*我感觉是重叠在一起 绝对位置*/
+    padding-top: 20px;
+    top: 100%;            /*div标签上面距离nav-item的上边距 是n%nav-item的高度*/
+    /* border: 2px solid red; */
+    transform: translateY(-20px);   /*向上移动20px*/
+
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;         /*透明度*/
+    transition: all 0.5s;
+    pointer-events: none;   /*表示这个box不会相应任何活动*/
+}
+.nav-item > div > span{
+    padding: 20px;
+    background-color: rgb(16, 16, 15);
+    color: white;
+}
+/*二级目录的上下圆角*/
+.nav-item > div > span:first-child{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.nav-item > div > span:last-child{
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+
+.nav-item:hover{
+    background-color: black;    /*背景颜色*/
+    color: white;               /*字体颜色*/
+}
+.nav-item:hover > div{
+    transform: translateY(0px);   /*向上移动20px*/
+    opacity: 1;         /*鼠标上来就显示二级目录 透明度*/
+    pointer-events: all;   /*表示这个box不会相应任何活动*/
+}
+.nav-item:hover > div > span:hover{
+    background-color: blueviolet;
+    /* border-radius: 6px; */
+}
+</style>
+</head>
+<body>
+    <div class="nav-box">
+        <div class="nav-item">
+            <span>Home</span>
+            <div>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+            </div>
+        </div>
+        <div class="nav-item">
+            <span>little 2</span>
+            <div>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+            </div>
+        </div>
+        <div class="nav-item">
+            <span>great 3</span>
+            <div>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+                <span>12345678</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
